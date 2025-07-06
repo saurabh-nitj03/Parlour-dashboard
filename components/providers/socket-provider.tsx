@@ -20,7 +20,7 @@ export function SocketProvider({ children }: { children: React.ReactNode }) {
     if (!user) return; 
     let socketInstance: Socket | null = null;
     (async () => {
-      socketInstance =await io(process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000",{
+      socketInstance =await io(process.env.NEXT_PUBLIC_API_URL || "https://parlour-dashboard-83dz.onrender.com",{
         auth: {
           token: localStorage.getItem("token"), // or send as query param
         },
