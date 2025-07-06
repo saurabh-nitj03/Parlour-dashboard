@@ -14,7 +14,6 @@ import Link from "next/link"
 interface DashboardStats {
   totalEmployees: number
   totalTasks: number
-  presentToday: number
   pendingTasks: number
 }
 
@@ -26,7 +25,6 @@ export default function DashboardPage() {
   const [stats, setStats] = useState<DashboardStats>({
     totalEmployees: 0,
     totalTasks: 0,
-    presentToday: 0,
     pendingTasks: 0,
   })
 
@@ -67,7 +65,7 @@ export default function DashboardPage() {
         </Badge>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Employees</CardTitle>
@@ -89,18 +87,6 @@ export default function DashboardPage() {
             <p className="text-xs text-muted-foreground">All assigned tasks</p>
           </CardContent>
         </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Present Today</CardTitle>
-            <UserCheck className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{stats.presentToday}</div>
-            <p className="text-xs text-muted-foreground">Employees checked in</p>
-          </CardContent>
-        </Card>
-
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Pending Tasks</CardTitle>

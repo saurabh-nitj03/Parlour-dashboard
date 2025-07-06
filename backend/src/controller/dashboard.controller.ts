@@ -34,7 +34,6 @@ export const getStats=async(req:Request, res:Response)=>{
         totalEmployees,
         totalTasks,
         pendingTasks,
-        presentToday,
       }
     })
   } catch (error) {
