@@ -28,22 +28,39 @@ export function AttendanceLog() {
     fetchRecentAttendance()
 
     // Listen for real-time updates
+    useEffect(() => {
+    fetchRecentAttendance()
+
+    // Listen for real-time updates
     if (socket) {
-      socket.on("attendance-update", (data) => {
+        socket.on("attendance-update", (data) => {
+        if (!data?.employee) {
+          console.warn("Missing employee data in socket update:", data)
+          return
+        }
         const newRecord: AttendanceRecord = {
           _id:data._id,
-          employee: {
+          employee:{
             name: data.employee?.name,
             position: data.employee?.position,
-            _id:data.employee?._id
+            _id:data.employee._id
           },
           action: data.action,
           updatedAt: data.timestamp,
         }
+        // console.log(newRecord);
         setRecords((prev) => [newRecord, ...prev.slice(0, 9)])
+        // console.log("record: "+records);
         
       })
     }
+
+    return () => {
+      if (socket) {
+        socket.off("attendance-update")
+      }
+    }
+  }, [socket])
 
     return () => {
       if (socket) {
