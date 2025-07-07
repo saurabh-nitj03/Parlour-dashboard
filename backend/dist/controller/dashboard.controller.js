@@ -34,8 +34,7 @@ const getStats = async (req, res) => {
             stats: {
                 totalEmployees,
                 totalTasks,
-                pendingTasks,
-                presentToday,
+                pendingTasks
             }
         });
     }
