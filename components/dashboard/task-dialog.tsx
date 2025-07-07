@@ -74,7 +74,7 @@ export function TaskDialog({ open, onOpenChange, task, onSave }: TaskDialogProps
       reset({
         title: task.title,
         description: task.description,
-        assignedTo: task.assignedTo._id,
+        assignedTo: task.assignedTo?._id,
         status: task.status,
         dueDate: task.dueDate.split("T")[0],
       })
