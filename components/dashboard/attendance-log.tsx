@@ -41,8 +41,8 @@ export function AttendanceLog() {
         const newRecord: AttendanceRecord = {
           _id:data._id,
           employee:{
-            name: data.employee?.name,
-            position: data.employee?.position,
+            name: data.employee.name,
+            position: data.employee.position,
             _id:data.employee._id
           },
           action: data.action,
