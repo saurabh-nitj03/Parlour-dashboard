@@ -30,9 +30,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const token = localStorage.getItem("token")
     if (token) {
-      (async () => {
-        await verifyToken(token);
-      })();
+       verifyToken(token);
     } else {
       setIsLoading(false)
     }
