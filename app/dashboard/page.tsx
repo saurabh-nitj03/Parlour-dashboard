@@ -110,16 +110,14 @@ export default function DashboardPage() {
           <CardContent className="space-y-4">
             {user?.role === "SUPER_ADMIN" && (
               <>
-              <Link href="/dashboard/employees">
-                  <div className="mt-4 p-4 border rounded-lg hover:bg-gray-50 cursor-pointer"
-                  onClick={() => router.push("/dasboard/employees")}>
+            <Link href="/dashboard/employees">
+                  <div className="mt-4 p-4 border rounded-lg hover:bg-gray-50 cursor-pointer">
                     <h3 className="font-medium">Add New Employee</h3>
                     <p className="text-sm text-gray-600">Register a new team member</p>
                   </div>
               </Link>
               <Link href="/dashboard/tasks">
-                <div className="mt-4 p-4 border rounded-lg hover:bg-gray-50 cursor-pointer"
-                onClick={() => router.push("/dasboard/tasks")}>
+                <div className="mt-4 p-4 border rounded-lg hover:bg-gray-50 cursor-pointer">
                   <h3 className="font-medium">Create Task</h3>
                   <p className="text-sm text-gray-600">Assign a new task to employees</p>
                 </div>
