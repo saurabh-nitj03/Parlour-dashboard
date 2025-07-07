@@ -19,8 +19,8 @@ export function SocketProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!user) return; 
     let socketInstance: Socket | null = null;
-    (async () => {
-      socketInstance =await io(process.env.NEXT_PUBLIC_API_URL || "https://parlour-dashboard-83dz.onrender.com",{
+    
+      socketInstance = io(process.env.NEXT_PUBLIC_API_URL || "https://parlour-dashboard-83dz.onrender.com",{
         auth: {
           token: localStorage.getItem("token"), // or send as query param
         },
@@ -28,8 +28,6 @@ export function SocketProvider({ children }: { children: React.ReactNode }) {
       setSocket(socketInstance)
       // console.log(socketInstance)
       // console.log("Socket Connected :"+socketInstance);
-
-    })()
 
     return () => {
       socketInstance?.close()
